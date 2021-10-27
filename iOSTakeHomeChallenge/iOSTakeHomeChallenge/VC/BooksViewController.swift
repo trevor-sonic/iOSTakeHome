@@ -5,18 +5,7 @@
 //  Created on 09/03/2021.
 //
 
-struct Book: Codable {
-    let url: String
-    let name: String
-    let isbn: String
-    let authors: [String]
-    let numberOfPages: Int
-    let publisher: String
-    let country: String
-    let mediaType: String
-    let released: String
-    let characters: [String]
-}
+
 
 import Foundation
 import UIKit

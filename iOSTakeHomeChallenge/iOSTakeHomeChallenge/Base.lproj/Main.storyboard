@@ -25,10 +25,10 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BooksTableViewCell" id="Qeq-DB-Qud" customClass="BooksTableViewCell" customModule="iOSTakeHomeChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="81.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qeq-DB-Qud" id="e2v-vc-Gyt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="81.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMC-B4-7ZN">
@@ -38,7 +38,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Oq-hc-j9Q">
-                                                    <rect key="frame" x="16" y="44.5" width="382" height="21"/>
+                                                    <rect key="frame" x="16" y="44.5" width="382" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -138,10 +138,10 @@
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HouseTableViewCell" id="epF-ix-hNP" customClass="HouseTableViewCell" customModule="iOSTakeHomeChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="epF-ix-hNP" id="zw0-ZM-EVT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-DN-QK6">
@@ -157,7 +157,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sW-2Y-9gO">
-                                                    <rect key="frame" x="16" y="45" width="390" height="21.5"/>
+                                                    <rect key="frame" x="16" y="45" width="390" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
