@@ -45,8 +45,16 @@ class BooksViewController: UIViewController, UITableViewDataSource {
                 print("Oops")
             }
             
-            let books = try! JSONDecoder().decode([Book].self, from: data!)
-            self.loadData(books: books)
+            if let data = data {
+                do{
+                    let books = try JSONDecoder().decode([Book].self, from: data)
+                    self.loadData(books: books)
+                }catch{
+                    print("📛 \(error) is NIL \(#function) in\(self.description)")
+                }
+            }else{
+                print("📛 data is NIL \(#function) in\(self.description)")
+            }
             
         })
         task.resume()
@@ -54,7 +62,10 @@ class BooksViewController: UIViewController, UITableViewDataSource {
     
     func loadData(books: [Book]) {
         cachedBooks = books
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

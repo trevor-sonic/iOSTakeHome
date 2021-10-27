@@ -49,8 +49,16 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
                 print("Oops")
             }
             
-            let characters = try! JSONDecoder().decode([Character].self, from: data!)
-            self.loadData(characters: characters)
+            if let data = data {
+                do{
+                    let characters = try JSONDecoder().decode([Character].self, from: data)
+                    self.loadData(characters: characters)
+                }catch{
+                    print("📛 \(error) is NIL \(#function) in\(self.description)")
+                }
+            }else{
+                print("📛 data is NIL \(#function) in\(self.description)")
+            }
             
         })
         task.resume()
@@ -58,7 +66,9 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
     
     func loadData(characters: [Character]) {
         cachedCharacters = characters
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

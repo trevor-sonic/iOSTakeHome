@@ -50,8 +50,16 @@ class HousesViewController: UIViewController, UITableViewDataSource {
                 print("Oops")
             }
             
-            let houses = try! JSONDecoder().decode([House].self, from: data!)
-            self.loadData(houses: houses)
+            if let data = data {
+                do{
+                    let houses = try JSONDecoder().decode([House].self, from: data)
+                    self.loadData(houses: houses)
+                }catch{
+                    print("📛 \(error) is NIL \(#function) in\(self.description)")
+                }
+            }else{
+                print("📛 data is NIL \(#function) in\(self.description)")
+            }
             
         })
         task.resume()
@@ -59,7 +67,9 @@ class HousesViewController: UIViewController, UITableViewDataSource {
     
     func loadData(houses: [House]) {
         cachedHouses = houses
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
