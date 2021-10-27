@@ -16,3 +16,4 @@ TableViews are still overlapping with top bar on iPhone10 and above. Top area st
 
 3.Find the repetitive codes and simplify.
 I've created a DataService for API requests.
+At this stage creating Unit Test classes may be useful. So I've added APITests class. In order to use defined data structs (House, Book, ...) I separate them into another file and added their target membership for test purpose.
