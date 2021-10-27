@@ -39,31 +39,24 @@ class HousesViewController: UIViewController, UITableViewDataSource {
     }
     
     func getHouses() {
-        var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/houses")!)
-        request.httpMethod = "GET"
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Content-Type": "application/json"
-        ]
-        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-            if (error != nil) {
-                print("Oops")
-            }
-            
-            if let data = data {
-                do{
-                    let houses = try JSONDecoder().decode([House].self, from: data)
-                    self.loadData(houses: houses)
-                }catch{
-                    print("📛 \(error) is NIL \(#function) in\(self.description)")
+        DataService().read(endpoint: .houses) { result in
+            switch result{
+            case .success(let data):
+                if let data = data {
+                    do{
+                        let houses = try JSONDecoder().decode([House].self, from: data)
+                        self.loadData(houses: houses)
+                    }catch{
+                        print("📛 Error: \(error) \(#function) in\(self.description)")
+                    }
+                }else{
+                    print("📛 data is NIL \(#function) in\(self.description)")
                 }
-            }else{
-                print("📛 data is NIL \(#function) in\(self.description)")
+                
+            case .failure(let error):
+                print("📛 Error: \(error) \(#function) in\(self.description)")
             }
-            
-        })
-        task.resume()
+        }
     }
     
     func loadData(houses: [House]) {

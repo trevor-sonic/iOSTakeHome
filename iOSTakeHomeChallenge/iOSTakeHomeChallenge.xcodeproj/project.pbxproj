@@ -16,6 +16,7 @@
 		117E69AC25F7A3A600E313E3 /* HousesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E69AB25F7A3A600E313E3 /* HousesViewController.swift */; };
 		117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */; };
 		DC81BB42272956C000CA0FAA /* DevNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = DC81BB41272956C000CA0FAA /* DevNotes.txt */; };
+		DC81BB4427297E2D00CA0FAA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81BB4327297E2D00CA0FAA /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		117E69AB25F7A3A600E313E3 /* HousesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewController.swift; sourceTree = "<group>"; };
 		117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		DC81BB41272956C000CA0FAA /* DevNotes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = DevNotes.txt; sourceTree = "<group>"; };
+		DC81BB4327297E2D00CA0FAA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				117E69A125F7A21F00E313E3 /* Info.plist */,
 				DC81BB41272956C000CA0FAA /* DevNotes.txt */,
 				117E69A825F7A39900E313E3 /* BooksViewController.swift */,
+				DC81BB4327297E2D00CA0FAA /* DataService.swift */,
 				117E69AB25F7A3A600E313E3 /* HousesViewController.swift */,
 				117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */,
 			);
@@ -151,6 +154,7 @@
 				117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */,
 				117E69A925F7A39900E313E3 /* BooksViewController.swift in Sources */,
 				117E699425F7A21E00E313E3 /* AppDelegate.swift in Sources */,
+				DC81BB4427297E2D00CA0FAA /* DataService.swift in Sources */,
 				117E699625F7A21E00E313E3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

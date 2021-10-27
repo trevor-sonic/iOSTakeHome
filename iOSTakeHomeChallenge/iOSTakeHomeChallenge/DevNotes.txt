@@ -12,4 +12,7 @@ Fixed: Error handling.
 
 2.Before starting to structural changes, delivering a better looking UI looks like better idea.
 Fixed: Background image.
+TableViews are still overlapping with top bar on iPhone10 and above. Top area stays white, tableview content is showing over this white area. Either white area should be transparent to show the tableview content, or tableview's top anchor should be set to bottom of this top white area. Programmatically, conditionally can be done  but on Storyboard I don't know for the moment I skip it, and move on to improving the code.
+
+3.Find the repetitive codes and simplify.
 

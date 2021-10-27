@@ -37,31 +37,24 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
     }
     
     func getCharacters() {
-        var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/characters")!)
-        request.httpMethod = "GET"
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Content-Type": "application/json"
-        ]
-        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-            if (error != nil) {
-                print("Oops")
-            }
-            
-            if let data = data {
-                do{
-                    let characters = try JSONDecoder().decode([Character].self, from: data)
-                    self.loadData(characters: characters)
-                }catch{
-                    print("📛 \(error) is NIL \(#function) in\(self.description)")
+        DataService().read(endpoint: .characters) { result in
+            switch result{
+            case .success(let data):
+                if let data = data {
+                    do{
+                        let characters = try JSONDecoder().decode([Character].self, from: data)
+                        self.loadData(characters: characters)
+                    }catch{
+                        print("📛 Error: \(error) \(#function) in\(self.description)")
+                    }
+                }else{
+                    print("📛 data is NIL \(#function) in\(self.description)")
                 }
-            }else{
-                print("📛 data is NIL \(#function) in\(self.description)")
+                
+            case .failure(let error):
+                print("📛 Error: \(error) \(#function) in\(self.description)")
             }
-            
-        })
-        task.resume()
+        }
     }
     
     func loadData(characters: [Character]) {
