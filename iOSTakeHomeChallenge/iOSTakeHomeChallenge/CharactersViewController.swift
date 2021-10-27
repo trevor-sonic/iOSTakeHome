@@ -32,7 +32,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
     var cachedCharacters: [Character] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         getCharacters()
     }
     

@@ -34,6 +34,7 @@ class HousesViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableView.contentInset.top = UIApplication.shared.statusBarFrame.height
         getHouses()
     }
     

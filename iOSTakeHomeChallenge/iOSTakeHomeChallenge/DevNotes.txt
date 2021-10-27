@@ -9,3 +9,7 @@ Steps
 1.Fix the crash, make the app compilable + crash free.
 Fixed: There were some obvious bad use of optional vars.
 Fixed: Error handling.
+
+2.Before starting to structural changes, delivering a better looking UI looks like better idea.
+Fixed: Background image.
+
