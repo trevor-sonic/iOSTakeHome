@@ -13,6 +13,9 @@ public enum MyError:Error{
 
 class DataService:NSObject {
     
+    /**
+     API endpoints
+     */
     enum Endpoint{
         case books, houses, characters
         
@@ -25,6 +28,9 @@ class DataService:NSObject {
         }
     }
     
+    /**
+     API Config
+     */
     var baseUrlComponents:URLComponents {
         var uc = URLComponents()
         uc.scheme = "https"
@@ -34,8 +40,7 @@ class DataService:NSObject {
     }
     
     
-    //var baseUrl = URL(string: "https://anapioficeandfire.com/api")
-    
+    // With enum
     func read(endpoint:Endpoint, _ completion: @escaping (Result<Data?, Error>)->Void){
         
         
@@ -70,5 +75,62 @@ class DataService:NSObject {
         task.resume()
         
     }
+
     
+    // with generics
+    func getThe<T:ThroneData>(endpoint:Endpoint, dataType: T.Type, _ completion: @escaping (Result<[T], Error>)->Void) {
+        DataService().read(endpoint: endpoint) { result in
+            switch result{
+            case .success(let data):
+                if let data = data {
+                    do{
+                        let jsonObj = try JSONDecoder().decode([T].self, from: data)
+                        completion(.success(jsonObj))
+                    }catch{
+                        print("📛 Error: \(error) \(#function) in\(self.description)")
+                    }
+                }else{
+                    print("📛 data is NIL \(#function) in\(self.description)")
+                }
+                
+            case .failure(let error):
+                print("📛 Error: \(error) \(#function) in\(self.description)")
+            }
+        }
+        
+        
+    }
+    
+    // with Generics
+    func read(endpoint: String, _ completion: @escaping (Result<Data?, Error>)->Void){
+        
+        var uc = baseUrlComponents
+        uc.path += endpoint
+        
+        guard let fullUrl = uc.url
+        
+        else { return completion(.failure(MyError.desc("fullUrl couldn't be created."))) }
+        
+        var request = URLRequest(url: fullUrl)
+        
+        
+        request.httpMethod = "GET"
+        let config: URLSessionConfiguration = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 15
+        config.httpAdditionalHeaders = [
+            "Content-Type": "application/json"
+        ]
+        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            if let error = error{
+                completion(.failure(error))
+            }else{
+                completion(.success(data))
+            }
+            
+            
+        })
+        task.resume()
+        
+    }
 }

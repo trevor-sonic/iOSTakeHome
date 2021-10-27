@@ -22,24 +22,33 @@ class BooksViewController: UIViewController, UITableViewDataSource {
     }
     
     func getBooks() {
-        DataService().read(endpoint: .books) { result in
+        
+        DataService().getThe(endpoint: .books, dataType: Book.self) { result in
             switch result{
-            case .success(let data):
-                if let data = data {
-                    do{
-                        let books = try JSONDecoder().decode([Book].self, from: data)
-                        self.loadData(books: books)
-                    }catch{
-                        print("📛 Error: \(error) \(#function) in\(self.description)")
-                    }
-                }else{
-                    print("📛 data is NIL \(#function) in\(self.description)")
-                }
-                
-            case .failure(let error):
-                print("📛 Error: \(error) \(#function) in\(self.description)")
+            case .success(let books):self.loadData(books: books)
+            case .failure(let error): print(error)
             }
         }
+        
+        
+//        DataService().read(endpoint: .books) { result in
+//            switch result{
+//            case .success(let data):
+//                if let data = data {
+//                    do{
+//                        let books = try JSONDecoder().decode([Book].self, from: data)
+//                        self.loadData(books: books)
+//                    }catch{
+//                        print("📛 Error: \(error) \(#function) in\(self.description)")
+//                    }
+//                }else{
+//                    print("📛 data is NIL \(#function) in\(self.description)")
+//                }
+//
+//            case .failure(let error):
+//                print("📛 Error: \(error) \(#function) in\(self.description)")
+//            }
+//        }
     }
     
     func loadData(books: [Book]) {

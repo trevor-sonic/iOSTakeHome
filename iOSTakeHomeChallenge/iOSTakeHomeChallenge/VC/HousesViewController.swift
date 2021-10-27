@@ -22,24 +22,42 @@ class HousesViewController: UIViewController, UITableViewDataSource {
     }
     
     func getHouses() {
-        DataService().read(endpoint: .houses) { result in
+        
+        DataService().getThe(endpoint: .houses, dataType: House.self) { result in
             switch result{
-            case .success(let data):
-                if let data = data {
-                    do{
-                        let houses = try JSONDecoder().decode([House].self, from: data)
-                        self.loadData(houses: houses)
-                    }catch{
-                        print("📛 Error: \(error) \(#function) in\(self.description)")
-                    }
-                }else{
-                    print("📛 data is NIL \(#function) in\(self.description)")
-                }
-                
-            case .failure(let error):
-                print("📛 Error: \(error) \(#function) in\(self.description)")
+            case .success(let houses):self.loadData(houses: houses)
+            case .failure(let error): print(error)
             }
         }
+        
+        
+//        DataService().getHouses { result in
+//            switch result{
+//            case .success(let houses):self.loadData(houses: houses)
+//            case .failure(let error): print(error)
+//            }
+//
+//        }
+        
+        
+//        DataService().read(endpoint: .houses) { result in
+//            switch result{
+//            case .success(let data):
+//                if let data = data {
+//                    do{
+//                        let houses = try JSONDecoder().decode([House].self, from: data)
+//                        self.loadData(houses: houses)
+//                    }catch{
+//                        print("📛 Error: \(error) \(#function) in\(self.description)")
+//                    }
+//                }else{
+//                    print("📛 data is NIL \(#function) in\(self.description)")
+//                }
+//
+//            case .failure(let error):
+//                print("📛 Error: \(error) \(#function) in\(self.description)")
+//            }
+//        }
     }
     
     func loadData(houses: [House]) {

@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct Book: Codable {
+protocol ThroneData: Codable {}
+
+struct Book: ThroneData {
+    
     let url: String
     let name: String
     let isbn: String
@@ -18,4 +21,5 @@ struct Book: Codable {
     let mediaType: String
     let released: String
     let characters: [String]
+    
 }

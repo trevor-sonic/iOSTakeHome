@@ -21,24 +21,34 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
     }
     
     func getCharacters() {
-        DataService().read(endpoint: .characters) { result in
+        
+        DataService().getThe(endpoint: .characters, dataType: Character.self) { result in
             switch result{
-            case .success(let data):
-                if let data = data {
-                    do{
-                        let characters = try JSONDecoder().decode([Character].self, from: data)
-                        self.loadData(characters: characters)
-                    }catch{
-                        print("📛 Error: \(error) \(#function) in\(self.description)")
-                    }
-                }else{
-                    print("📛 data is NIL \(#function) in\(self.description)")
-                }
-                
-            case .failure(let error):
-                print("📛 Error: \(error) \(#function) in\(self.description)")
+            case .success(let characters):self.loadData(characters: characters)
+            case .failure(let error): print(error)
             }
         }
+        
+        
+        
+//        DataService().read(endpoint: .characters) { result in
+//            switch result{
+//            case .success(let data):
+//                if let data = data {
+//                    do{
+//                        let characters = try JSONDecoder().decode([Character].self, from: data)
+//                        self.loadData(characters: characters)
+//                    }catch{
+//                        print("📛 Error: \(error) \(#function) in\(self.description)")
+//                    }
+//                }else{
+//                    print("📛 data is NIL \(#function) in\(self.description)")
+//                }
+//
+//            case .failure(let error):
+//                print("📛 Error: \(error) \(#function) in\(self.description)")
+//            }
+//        }
     }
     
     func loadData(characters: [Character]) {

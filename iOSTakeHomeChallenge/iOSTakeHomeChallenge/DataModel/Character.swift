@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Character: Codable {
+struct Character: ThroneData {
+   
     let url: String
     let name: String
     let gender: String
@@ -23,4 +24,5 @@ struct Character: Codable {
     let povBooks: [String]
     let tvSeries: [String]
     let playedBy: [String]
+    
 }

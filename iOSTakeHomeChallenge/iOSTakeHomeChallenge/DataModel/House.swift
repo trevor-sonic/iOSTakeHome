@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct House: Codable {
+struct House: ThroneData{
+
+    
+    
     let url: String
     let name: String
     let region: String
@@ -24,4 +27,5 @@ struct House: Codable {
     let ancestralWeapons: [String]
     let cadetBranches: [String]
     let swornMembers: [String]
+    
 }
